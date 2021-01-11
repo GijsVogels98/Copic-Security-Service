@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
-@CrossOrigin("*")
+
 @SpringBootApplication
 @EnableEurekaClient
 public class SecurityServiceApplication {
