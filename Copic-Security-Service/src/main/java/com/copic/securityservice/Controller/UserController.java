@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "*")
+
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/security/")
 public class UserController {
@@ -67,7 +68,6 @@ public class UserController {
     @PostMapping("/delete/{id}")
     public void DeleteUser(@PathVariable Long id){userService.deleteUser(id);}
 
-    @CrossOrigin("*")
     @PutMapping("/update_password")
     public ResponseEntity<?> UpdateUserPassword(@RequestBody UpdateUserModel user) throws Exception{
 
