@@ -40,6 +40,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @CrossOrigin("*")
     @PostMapping(value = "/sign-in")
     public ResponseEntity<?> generateToken(@RequestBody AuthRequestModel authRequestModel) throws Exception{
 //        authRequestModel.setPassword(passwordEncoder.encode(authRequestModel.getPassword()));
@@ -64,7 +65,7 @@ public class UserController {
         ));
 
     }
-
+    @CrossOrigin("*")
     @PostMapping("/delete/{id}")
     public void DeleteUser(@PathVariable Long id){userService.deleteUser(id);}
 
@@ -97,7 +98,7 @@ public class UserController {
             return new ResponseEntity<String>("Error while updateting user", HttpStatus.EXPECTATION_FAILED);
         }
     }
-
+    @CrossOrigin("*")
     @PutMapping("/update_email")
     public ResponseEntity<?> UpdateUserEmail(@RequestBody UpdateUserModel user) throws Exception{
 
@@ -127,12 +128,12 @@ public class UserController {
         }
     }
 
-
+    @CrossOrigin("*")
     @GetMapping("/users")
     public List<UserModel> GetAllUsers() {
         return userService.getAllUsers();
     }
-
+    @CrossOrigin("*")
     @PostMapping("/sign-up" )
     public UserModel CreateUser(@RequestBody UserModel user) throws Exception {
         if (userRepository.existsByUsername(user.getUsername())) {
