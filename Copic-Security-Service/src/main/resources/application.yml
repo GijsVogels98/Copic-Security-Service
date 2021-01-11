@@ -1,7 +1,10 @@
 
+
 spring:
   application:
     name: SECURITY-SERVICE
+
+
 
 
 
