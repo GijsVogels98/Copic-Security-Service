@@ -22,8 +22,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@CrossOrigin("*")
+
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/security/")
 public class UserController {
 
@@ -43,7 +44,6 @@ public class UserController {
 
     @PostMapping(value = "/sign-in")
     public ResponseEntity<?> generateToken(@RequestBody AuthRequestModel authRequestModel) throws Exception{
-//        authRequestModel.setPassword(passwordEncoder.encode(authRequestModel.getPassword()));
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(authRequestModel.getUsername(), authRequestModel.getPassword())
