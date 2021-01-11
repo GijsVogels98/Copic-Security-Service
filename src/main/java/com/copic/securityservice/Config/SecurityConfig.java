@@ -66,7 +66,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests().antMatchers("/security/sign-in", "/security/sign-up", "/security/users" , "/security/update_password" , "/security/update_email"
-        ,"/security/delete/**").permitAll().anyRequest().authenticated().and().exceptionHandling().and().sessionManagement()
+        ,"/security/delete/**" ,"/media/delete").permitAll().anyRequest().authenticated().and().exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
     }
